@@ -4,5 +4,9 @@
   "editor.wordWrap": "on",
   "editor.mouseWheelZoom": true,
   "editor.formatOnPaste": true,
-  "editor.autoIndentOnPaste": true
+  "editor.autoIndentOnPaste": true,
+  "cSpell.words": [
+    "Wakil"
+  ],
+  // "css.lint.unknownAtRules": "ignore"
 }
