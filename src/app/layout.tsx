@@ -3,6 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,11 +33,14 @@ export default function RootLayout({
       className={`${inter.variable} ${roboto_mono.variable} antialiased`}
     >
       <body>
+        <Navbar />
         <SidebarProvider>
           <AppSidebar />
-          <main className="w-full">
-            <SidebarTrigger />
-            {children}
+          <main className="w-full relative">
+            <div className="p-4">
+              <SidebarTrigger />
+              {children}
+            </div>
           </main>
         </SidebarProvider>
       </body>

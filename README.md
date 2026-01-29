@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wakil's Portfolio Website
 
-## Getting Started
+## 📊 Project Overview
+This is a **modern personal portfolio website** built with **Next.js 16** and **React 19**, showcasing a developer portfolio for "Wakil - Software Engineer". The project uses TypeScript and is currently in early development stages.
 
-First, run the development server:
+## 🛠️ Technology Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Core Framework
+- **Next.js 16.1.4** (App Router architecture)
+- **React 19.2.3** with React DOM
+- **TypeScript 5**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Styling
+- **Tailwind CSS 4** (using the new `@tailwindcss/postcss` setup)
+- **tw-animate-css** for animations
+- Custom design system with OKLCH color space for modern color management
+- Google Fonts: **Inter** (sans-serif) and **Roboto Mono** (monospace)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### UI Component Library
+- **shadcn/ui** components (Radix UI primitives)
+- **Lucide React** icons
+- Components include: Button, Input, Separator, Sheet, Sidebar, Skeleton, Tooltip
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Code Quality
+- **Biome** for linting and formatting (replacing ESLint/Prettier)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Design System
+- Comprehensive theming with light/dark mode support
+- Custom color palette using OKLCH color space
+- Sidebar-specific color tokens
+- Responsive design with mobile breakpoint at 768px
+- Multiple border radius utilities
 
-## Deploy on Vercel
+### 2. Sidebar Navigation
+- Collapsible sidebar with multiple variants (sidebar, floating, inset)
+- Multiple collapsible modes (offcanvas, icon, none)
+- Mobile-responsive with separate mobile width
+- Keyboard shortcut support (B key)
+- Cookie-based state persistence
+- Navigation items: Home, Inbox, Calendar, Search, Settings (placeholders)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Current Implementation
+- Root layout with sidebar integration
+- Simple home page with a button component
+- Font optimization with Next.js font loading
+- Custom base styles applied globally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Current Development Stage
+
+The project appears to be in **early development**:
+- ✅ Basic Next.js setup complete
+- ✅ Design system and theming configured
+- ✅ UI component library integrated
+- ✅ Sidebar navigation structure in place
+- ⚠️ Main content is minimal (just a button on homepage)
+- ⚠️ Navigation links are placeholders (all pointing to "#")
+- ⚠️ No actual portfolio content yet (projects, about, skills, etc.)
+- ⚠️ Public folder is empty (no images/assets)
+
+## 📝 Notable Configuration
+
+- **PostCSS** configured for Tailwind CSS 4
+- **Path aliases**: `@/*` maps to `./src/*`
+- **TypeScript**: Strict mode enabled
+- **Dev server**: Currently running on port 3000
+
+## 🔍 Interesting Technical Choices
+
+1. **Tailwind CSS 4**: Using the latest version with new `@import "tailwindcss"` syntax
+2. **OKLCH Colors**: Modern color space for better color perception
+3. **Biome**: Modern all-in-one toolchain instead of ESLint/Prettier
+4. **React 19**: Using the latest React features
+5. **Custom sidebar system**: Comprehensive sidebar implementation with advanced features
