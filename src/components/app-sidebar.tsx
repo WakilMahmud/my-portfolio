@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Briefcase,
   Code2,
@@ -19,6 +21,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const items = [
   {
@@ -64,6 +67,8 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
+
   return (
     <Sidebar className="mt-14 max-h-[calc(100vh-110px)]">
       <SidebarContent>
@@ -72,10 +77,14 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild isActive={pathname === item.route}>
                     <Link href={item.route}>
                       <item.icon />
-                      <span>{item.title}</span>
+                      <span
+                        className={`text-sidebar-foreground ${pathname === item.route ? "font-bold" : ""}`}
+                      >
+                        {item.title}
+                      </span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
