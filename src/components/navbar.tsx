@@ -7,18 +7,12 @@ import { Button } from "@/components/ui/button";
 
 const NAVBAR_ROUTES = [
   {
-    name: "Home",
-    href: "/",
-  },
-  {
     name: "LinkedIn",
-    href: "https://linkedin.com",
-    external: true,
+    href: "https://www.linkedin.com/in/wakil-mahmud-dev/",
   },
   {
     name: "Resume",
-    href: "/resume",
-    external: true,
+    href: "#",
   },
 ];
 
@@ -72,12 +66,12 @@ export function Navbar() {
               <Link
                 key={route.name}
                 href={route.href}
-                target={route.external ? "_blank" : undefined}
-                rel={route.external ? "noreferrer" : undefined}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-1 transition-colors hover:text-foreground"
               >
                 {route.name}
-                {route.external && <ArrowUpRight className="h-3 w-3" />}
+                <ArrowUpRight className="h-3 w-3" />
               </Link>
             ))}
           </nav>

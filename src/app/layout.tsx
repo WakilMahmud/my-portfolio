@@ -37,11 +37,13 @@ export default function RootLayout({
         <Navbar />
         <SidebarProvider>
           <AppSidebar />
-          <main className="w-full flex flex-col max-h-[calc(100vh-110px)] relative overflow-y-auto bg-green-500">
+          <main className="w-full flex flex-col max-h-[calc(100vh-110px)] relative overflow-y-auto">
             <div className="sticky top-0">
               <SidebarTrigger />
             </div>
-            <div className="p-4 flex-1">{children}</div>
+            <div className="p-4 flex-1 min-h-[calc(100vh-130px)]">
+              {children}
+            </div>
           </main>
         </SidebarProvider>
         <Footer />
