@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,13 +37,14 @@ export default function RootLayout({
         <Navbar />
         <SidebarProvider>
           <AppSidebar />
-          <main className="w-full relative">
-            <div className="p-4">
+          <main className="w-full flex flex-col max-h-[calc(100vh-110px)] relative overflow-y-auto bg-green-500">
+            <div className="sticky top-0">
               <SidebarTrigger />
-              {children}
             </div>
+            <div className="p-4 flex-1">{children}</div>
           </main>
         </SidebarProvider>
+        <Footer />
       </body>
     </html>
   );

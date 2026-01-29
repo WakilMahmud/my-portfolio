@@ -5,7 +5,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -42,7 +41,7 @@ const items = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-14">
+    <Sidebar className="mt-14 max-h-[calc(100vh-110px)]">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
