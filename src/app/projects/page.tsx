@@ -3,22 +3,15 @@
 import { useState } from "react";
 import { Github, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const PROJECTS = [
   {
     title: "E-Commerce Platform",
     description:
-      "Full-stack marketplace with real-time inventory management, payment integration, and advanced analytics dashboard.",
+      "Full-stack marketplace with real-time inventory management and analytics.",
     category: "Web App",
     image:
       "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
@@ -29,7 +22,7 @@ const PROJECTS = [
   {
     title: "Fitness Tracking App",
     description:
-      "Cross-platform mobile application with workout tracking, nutrition logging, and social features for fitness enthusiasts.",
+      "Cross-platform mobile app with workout tracking and social features.",
     category: "Mobile",
     image:
       "https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=800&auto=format&fit=crop",
@@ -40,7 +33,7 @@ const PROJECTS = [
   {
     title: "RESTful API Gateway",
     description:
-      "Scalable microservices architecture with authentication, rate limiting, and comprehensive API documentation.",
+      "Scalable microservices with authentication and rate limiting.",
     category: "API",
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
@@ -51,7 +44,7 @@ const PROJECTS = [
   {
     title: "Team Collaboration Suite",
     description:
-      "Real-time collaboration platform with video conferencing, document sharing, and project management tools.",
+      "Real-time collaboration platform with video and document sharing.",
     category: "Web App",
     image:
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
@@ -61,8 +54,7 @@ const PROJECTS = [
   },
   {
     title: "AI Content Generator",
-    description:
-      "Machine learning powered content generation tool with natural language processing and SEO optimization.",
+    description: "ML-powered content generation with NLP and SEO optimization.",
     category: "API",
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
@@ -72,8 +64,7 @@ const PROJECTS = [
   },
   {
     title: "Crypto Wallet App",
-    description:
-      "Secure cryptocurrency wallet with multi-chain support, real-time price tracking, and decentralized exchange integration.",
+    description: "Secure multi-chain wallet with real-time price tracking.",
     category: "Mobile",
     image:
       "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=800&auto=format&fit=crop",
@@ -128,28 +119,28 @@ export default function ProjectsPage() {
       : PROJECTS.filter((p) => p.category === activeTab);
 
   return (
-    <div className="space-y-12 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-foreground">
+    <div className="space-y-8 py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="text-center space-y-2">
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-foreground">
           Featured Projects
         </h1>
-        <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
           A showcase of my recent work and technical expertise
         </p>
       </div>
 
       <Tabs
         defaultValue="All"
-        className="w-full space-y-12"
+        className="w-full space-y-6"
         onValueChange={setActiveTab}
       >
         <div className="flex justify-center">
-          <TabsList className="h-11 p-1 bg-muted/40 backdrop-blur-sm border-border/50">
+          <TabsList className="h-10 p-1 bg-muted/40 backdrop-blur-sm">
             {CATEGORIES.map((category) => (
               <TabsTrigger
                 key={category}
                 value={category}
-                className="px-8 h-full data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm transition-all"
+                className="px-5 h-full text-sm data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
               >
                 {category}
               </TabsTrigger>
@@ -158,66 +149,58 @@ export default function ProjectsPage() {
         </div>
 
         <TabsContent value={activeTab} className="mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredProjects.map((project, index) => (
               <Card
                 key={index}
-                className="overflow-hidden border-border/40 bg-card/50 backdrop-blur-xs flex flex-col group transition-all duration-500 hover:ring-2 hover:ring-primary/20 hover:shadow-2xl"
+                className="overflow-hidden border-border/40 bg-card group transition-all duration-300 hover:shadow-xl hover:border-primary/20"
               >
-                <div className="relative aspect-video overflow-hidden border-b border-border/50">
+                {/* Image */}
+                <div className="relative h-40 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="bg-white text-black hover:bg-white/90 border-none shadow-lg"
-                      asChild
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Hover Actions */}
+                  <div className="absolute bottom-3 left-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-white/90 text-black rounded-md hover:bg-white transition-colors"
                     >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="h-4 w-4 mr-2" /> Code
-                      </a>
-                    </Button>
-                    <Button
-                      variant="default"
-                      size="sm"
-                      className="shadow-lg"
-                      asChild
+                      <Github className="h-3.5 w-3.5" /> Code
+                    </a>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
                     >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" /> Live Demo
-                      </a>
-                    </Button>
+                      <ExternalLink className="h-3.5 w-3.5" /> Demo
+                    </a>
                   </div>
                 </div>
 
-                <CardHeader className="p-6 space-y-2 flex-grow">
-                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors">
+                {/* Content */}
+                <div className="p-4 space-y-3">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                     {project.title}
-                  </CardTitle>
-                  <p className="text-muted-foreground leading-relaxed">
+                  </h3>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
                     {project.description}
                   </p>
-                </CardHeader>
 
-                <CardContent className="px-6 pb-6 pt-0">
-                  <div className="flex flex-wrap gap-2">
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <Badge
                         key={tag}
                         className={cn(
-                          "px-2.5 py-0.5 rounded-md border-none text-[11px] font-bold uppercase tracking-wider",
+                          "px-2 py-0.5 text-[10px] font-semibold rounded border-none",
                           getTagColor(tag),
                         )}
                       >
@@ -225,31 +208,15 @@ export default function ProjectsPage() {
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-
-                <CardFooter className="px-6 pb-6 pt-0 mt-auto border-t border-border/30 bg-muted/5 flex gap-6">
-                  <a
-                    href={project.githubUrl}
-                    className="flex items-center text-sm font-semibold text-muted-foreground hover:text-primary transition-colors gap-2 group/link"
-                  >
-                    <Github className="h-4 w-4 group-hover/link:scale-110 transition-transform" />{" "}
-                    Code
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center text-sm font-semibold text-muted-foreground hover:text-primary transition-colors gap-2 group/link"
-                  >
-                    <ExternalLink className="h-4 w-4 group-hover/link:scale-110 transition-transform" />{" "}
-                    Live Demo
-                  </a>
-                </CardFooter>
+                </div>
               </Card>
             ))}
           </div>
         </TabsContent>
+
         {filteredProjects.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-muted-foreground text-lg">
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">
               No projects found in this category.
             </p>
           </div>
