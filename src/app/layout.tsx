@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
@@ -32,21 +33,24 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${roboto_mono.variable} antialiased`}
+      suppressHydrationWarning
     >
       <body>
-        <Navbar />
-        <SidebarProvider>
-          <AppSidebar />
-          <main className="w-full flex flex-col max-h-[calc(100vh-110px)] relative overflow-y-auto">
-            <div className="sticky top-0">
-              <SidebarTrigger />
-            </div>
-            <div className="p-4 flex-1 min-h-[calc(100vh-130px)]">
-              {children}
-            </div>
-          </main>
-        </SidebarProvider>
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full flex flex-col max-h-[calc(100vh-110px)] relative overflow-y-auto">
+              <div className="sticky top-0">
+                <SidebarTrigger />
+              </div>
+              <div className="p-4 flex-1 min-h-[calc(100vh-130px)]">
+                {children}
+              </div>
+            </main>
+          </SidebarProvider>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

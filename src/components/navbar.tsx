@@ -5,6 +5,7 @@ import { ArrowUpRight, Github, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 import { Search } from "./Search";
+import { useTheme } from "./theme-provider";
 
 const NAVBAR_ROUTES = [
   {
@@ -49,6 +50,8 @@ function TimeDisplay() {
 }
 
 export function Navbar() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/60 dark:bg-black/50">
       <div className="flex h-14 items-center justify-between px-4 gap-30">
@@ -88,6 +91,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               className="h-8 w-8 hover:bg-muted"
+              onClick={toggleTheme}
             >
               <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
