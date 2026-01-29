@@ -81,7 +81,7 @@ export function AppSidebar() {
                     <Link href={item.route}>
                       <item.icon />
                       <span
-                        className={`text-sidebar-foreground ${pathname === item.route ? "font-bold" : ""}`}
+                        className={`text-sidebar-foreground ${pathname === item.route ? "font-semibold" : ""}`}
                       >
                         {item.title}
                       </span>
